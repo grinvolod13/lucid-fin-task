@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = {extras = ["standard"], version = "*"}
+sqlalchemy = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+python-dotenv = "*"
+pydantic = {extras = ["email"], version = "*"}
+fastapi-cache2 = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
