@@ -1,3 +1,4 @@
+from fastapi import Query
 from pydantic import BaseModel, Field, field_validator
 from email_validator import validate_email, EmailNotValidError
 
@@ -7,7 +8,9 @@ class Token(BaseModel):
     token: str
     
 class GetPostsRequest(Token):
-    ...
+    token: str = Query()
+
+
 class AddPostRequest(Token):
     text: str = Field(max_length=POST_SIZE_BYTES) # Validation of size (max 1Mb)
     

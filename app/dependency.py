@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from app.const import CONFIG
 
 engine_string = CONFIG['engine_string']
-engine = create_engine(engine_string)
+engine = create_engine(engine_string) # type: ignore
 session_factory = sessionmaker(bind=engine)
 
 

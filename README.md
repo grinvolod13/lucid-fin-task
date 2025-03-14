@@ -6,16 +6,16 @@ All data entities should have defined a SQLAlchemy model and a Pydantic model wi
 
 
 
-- [ ] Signup Endpoint:
+- [x] Signup Endpoint:
     - Accepts `email` and `password`.
     - Returns a token (JWT or randomly generated string).
 
 
-- [ ] Login Endpoint:
+- [x] Login Endpoint:
     - Accepts `email` and `password`.
     - Returns a token upon successful login; error response if login fails.
 
-- [ ]  AddPost Endpoint:
+- [x]  AddPost Endpoint:
     - Accepts `text` and a `token` for authentication.
     - Validates payload size (limit to 1 MB), saves the post in memory, returning `postID`.
     - Returns an error for invalid or missing token.
@@ -27,7 +27,7 @@ All data entities should have defined a SQLAlchemy model and a Pydantic model wi
     - Returns an error for invalid or missing token.
     - Dependency injection for token authentication.
 
-- [ ]  DeletePost Endpoint:
+- [x]  DeletePost Endpoint:
     - Accepts `postID` and a `token` for authentication.
     - Deletes the corresponding post from memory.
     - Returns an error for invalid or missing token.

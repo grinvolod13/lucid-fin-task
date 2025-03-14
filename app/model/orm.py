@@ -12,7 +12,7 @@ class Post(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
     user: Mapped['User'] = relationship(back_populates='posts')
-    text: Mapped[str] = mapped_column(BLOB(POST_SIZE_BYTES), default=''.encode())
+    text: Mapped[bytes] = mapped_column(BLOB(POST_SIZE_BYTES), default=''.encode())
     
 class User(Base):
     __tablename__ = 'user'
