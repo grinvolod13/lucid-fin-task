@@ -6,8 +6,9 @@ name = "pypi"
 [packages]
 fastapi = {extras = ["standard"], version = "*"}
 sqlalchemy = "*"
-pydantic = "*"
 uvicorn = {extras = ["standard"], version = "*"}
+python-dotenv = "*"
+pydantic = {extras = ["email"], version = "*"}
 
 [dev-packages]
 
