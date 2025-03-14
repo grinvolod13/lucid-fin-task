@@ -9,6 +9,7 @@ sqlalchemy = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 python-dotenv = "*"
 pydantic = {extras = ["email"], version = "*"}
+fastapi-cache2 = "*"
 
 [dev-packages]
 

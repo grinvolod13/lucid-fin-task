@@ -7,6 +7,9 @@ from app.security import token_check
 from app.model.validation import AddPostRequest, GetPostsRequest, DeletePostRequest
 
 from app.controller import PostController
+from fastapi_cache.decorator import cache
+
+
 post_api = APIRouter()
 
 
@@ -15,9 +18,10 @@ def write_post(payload: AddPostRequest, db: DB):
     PostController(db).write_post(payload.token, payload.text)
     return {'status': 'ok'}
     
-    
+
 @post_api.get('/post')
-def get_all_posts(db:DB, token = Query(Depends(token_check))):
+@cache(expire=300)
+async def get_all_posts(db:DB, token = Query(Depends(token_check)))->list[str]:
     return PostController(db).get_all_posts(token)
 
     

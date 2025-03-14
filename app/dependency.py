@@ -9,6 +9,7 @@ session_factory = sessionmaker(bind=engine)
 
 
 def get_db():
+    """Session generator"""
     db = session_factory()
     try:
         yield db
@@ -23,5 +24,5 @@ def get_db():
 from fastapi import Depends
 from typing import Annotated
 
-
+# we are using this as a Dependency for fastapi 
 DB = Annotated[Session, Depends(get_db)]

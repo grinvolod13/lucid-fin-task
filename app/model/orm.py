@@ -8,6 +8,7 @@ class Base(DeclarativeBase):
     ...
 
 class Post(Base):
+    """Text stored in bytes BLOB"""
     __tablename__ = 'post'
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
@@ -18,7 +19,7 @@ class User(Base):
     __tablename__ = 'user'
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True) 
     email: Mapped[str] = mapped_column(unique=True)
-    password: Mapped[str] = mapped_column(String(256)) # as test task, i am sure its okay to leave it unashed and unsalted :D
+    password: Mapped[str] = mapped_column(String(256)) # as test task, i am sure its okay to leave it unhashed and unsalted :D
     token: Mapped[str] = mapped_column(String(256))
     
     posts: Mapped[list[Post]] = relationship(back_populates='user')

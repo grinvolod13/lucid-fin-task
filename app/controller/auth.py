@@ -5,8 +5,8 @@ from app.controller.base import Base
 from app.model.orm import User
 
 class AuthController(Base):
-    ...
     def signup(self, email: str, password: str)->str:
+        """Creates user with unique email, returns token on success"""
         user = self.db.query(User).filter(User.email == email).one_or_none()
         if user:
             raise HTTPException(403, detail='User exists')
@@ -23,6 +23,7 @@ class AuthController(Base):
         
         
     def login(self, email, password)->str:
+        """Returns token on login"""
         user = self.db.query(User).filter(User.email == email, User.password == password).one_or_none()
         if not user:
             raise HTTPException(401, detail='Invalid email or password')
